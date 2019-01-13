@@ -1,0 +1,26 @@
+{
+  "name": "sql-behind",
+  "version": "0.0.1",
+  "description": "program CODE and SQL are stored in separate files",
+  "main": "sql-behind.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmrmsys/sql-behind.git"
+  },
+  "keywords": [
+    "sql",
+    "template"
+  ],
+  "author": "Masayoshi Nomura <nmrmsys@gmail.com> (http://github.com/nmrmsys)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nmrmsys/sql-behind/issues"
+  },
+  "homepage": "https://github.com/nmrmsys/sql-behind#readme",
+  "dependencies": {
+    "caller": "^1.0.1"
+  }
+}
