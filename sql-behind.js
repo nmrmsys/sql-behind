@@ -7,10 +7,13 @@ let fs = require('fs');
 
 function sqlBehind(sqlName, params){
     if(params === undefined) { params = []; }
-    let caller = require('caller');
-    let callFileName = caller();
-    let sqlFileName = path.join(path.dirname(callFileName), path.basename(callFileName, path.extname(callFileName)) + '.sql');
-    let retSql = getSql(sqlFileName, sqlName);
+    let retSql = sqlName;
+    if(! retSql.match(/^(SELECT|INSERT|UPDATE|DELETE)\s/i)){
+        let caller = require('caller');
+        let callFileName = caller();
+        let sqlFileName = path.join(path.dirname(callFileName), path.basename(callFileName, path.extname(callFileName)) + '.sql');
+        retSql = getSql(sqlFileName, sqlName);
+    }
     let retSB = null;
     if(retSql != ''){
         let paramNames = [];
