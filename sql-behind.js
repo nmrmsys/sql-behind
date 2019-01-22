@@ -5,13 +5,16 @@ module.exports = sqlBehind;
 let path = require('path');
 let fs = require('fs');
 
-function sqlBehind(sqlName, params){
+function sqlBehind(sqlName, params, levelOrFilename = 1){
     if(params === undefined) { params = []; }
     let retSql = sqlName;
     if(! retSql.match(/^(SELECT|INSERT|UPDATE|DELETE)\s/i)){
-        let caller = require('caller');
-        let callFileName = caller();
-        let sqlFileName = path.join(path.dirname(callFileName), path.basename(callFileName, path.extname(callFileName)) + '.sql');
+        let sqlFileName = levelOrFilename;
+        if(!isNaN(levelOrFilename)){
+            let caller = require('caller');
+            let callFileName = caller(levelOrFilename);
+            sqlFileName = path.join(path.dirname(callFileName), path.basename(callFileName, path.extname(callFileName)) + '.sql');
+        }
         retSql = getSql(sqlFileName, sqlName);
     }
     let retSB = null;
