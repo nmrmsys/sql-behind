@@ -8,7 +8,7 @@ let fs = require('fs');
 function sqlBehind(sqlName, params, levelOrFilename = 1){
     if(params === undefined) { params = []; }
     let retSql = sqlName;
-    if(! retSql.match(/^(SELECT|INSERT|UPDATE|DELETE)\s/i)){
+    if(! retSql.match(/^(SELECT|INSERT|UPDATE|DELETE|CREATE|DROP)\s/i)){
         let sqlFileName = levelOrFilename;
         if(!isNaN(levelOrFilename)){
             let caller = require('caller');
