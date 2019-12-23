@@ -17,7 +17,7 @@ function sqlBehind(sqlName, params, levelOrFilename = 1){
         }
         retSql = getSql(sqlFileName, sqlName);
     }
-    let retSB = null;
+    let retSB = {sqlString:'', paramArray:[]};
     if(retSql != ''){
         let paramNames = [];
         if(retSql.indexOf(':') > -1){
@@ -38,7 +38,6 @@ function sqlBehind(sqlName, params, levelOrFilename = 1){
             }
             params = paramValues;
         }
-        retSB = {};
         retSB.sqlString = retSql;
         retSB.paramArray = params;
     }

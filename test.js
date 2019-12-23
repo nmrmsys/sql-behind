@@ -6,7 +6,7 @@ var retSB = sqlBehind('query1', {FLD1:'1', FLD2:'a'});
 // var test2 = new (require('./test2.js'))();
 // var retSB = test2.run(); // sqlBehind('query1', {FLD1:'1', FLD2:'a'}, 2);
 
-if(retSB){
+if(retSB.sqlString != ''){
     console.log('sqlString: ' + retSB.sqlString);
     console.log('paramArray: ' + JSON.stringify(retSB.paramArray));
 } else {

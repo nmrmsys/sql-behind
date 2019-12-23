@@ -1,6 +1,6 @@
 {
   "name": "sql-behind",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "program CODE and SQL are stored in separate files",
   "main": "sql-behind.js",
   "scripts": {
